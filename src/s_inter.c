@@ -15,7 +15,7 @@ that didn't really belong anywhere. */
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include <sys/mman.h>
+// #include <sys/mman.h>
 #include <sys/resource.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -561,7 +561,7 @@ static int socketreceiver_doread(t_socketreceiver *x)
 static void socketreceiver_getudp(t_socketreceiver *x, int fd)
 {
     char *buf = (char *)sys_getrecvbuf(0);
-    socklen_t fromaddrlen = sizeof(struct sockaddr_storage);
+    size_t fromaddrlen = sizeof(struct sockaddr_storage);
     int ret, readbytes = 0;
     while (1)
     {

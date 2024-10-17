@@ -134,12 +134,8 @@ static int atomic_int_compare_exchange(volatile int *ptr, int *expected, int des
 /* BSD has deprecated BYTE_ORDER in favour of _BYTE_ORDER
  * others might follow...
  */
-#if !defined(BYTE_ORDER) && defined(_BYTE_ORDER)
 # define BYTE_ORDER _BYTE_ORDER
-#endif
-#if !defined(LITTLE_ENDIAN) && defined(_LITTLE_ENDIAN)
 # define LITTLE_ENDIAN _LITTLE_ENDIAN
-#endif
 
 #ifdef _MSC_VER
 /* _MSVC lacks BYTE_ORDER and LITTLE_ENDIAN */

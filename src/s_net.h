@@ -11,12 +11,12 @@
 #include <ws2tcpip.h>
 typedef int socklen_t;
 #else
-#include <arpa/inet.h>
-#include <sys/socket.h>
+// #include <arpa/inet.h>
+// #include <sys/socket.h>
 #include <sys/select.h>
-#include <netinet/in.h>
-#include <netinet/tcp.h>
-#include <netdb.h>
+// #include <netinet/in.h>
+// #include <netinet/tcp.h>
+// #include <netdb.h>
 #endif
 
 #ifndef NET_MAXPACKETSIZE
@@ -109,7 +109,7 @@ int socket_init(void);
     /** connect a socket to an address with a settable timeout in seconds
         returns -1 on error, use socket_errno() to get the actual error code */
 int socket_connect(int socket, const struct sockaddr *addr,
-                   socklen_t addrlen, float timeout);
+                   __socklen_t addrlen, float timeout);
 
     /** cross-platform socket close() */
 void socket_close(int socket);

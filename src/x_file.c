@@ -807,7 +807,7 @@ static int do_file_stat(t_file_handle*x, const char*filename, struct stat*sb, in
     if(is_symlink) {
         *is_symlink=0;
 #ifdef S_IFLNK
-        if(!lstat(buf, sb)) {
+        if(!stat(buf, sb)) {
             *is_symlink = !!(S_ISLNK(sb->st_mode));
         }
 #endif
